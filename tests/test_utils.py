@@ -5,7 +5,6 @@ from src.utils import Product, Category
 class TestProductAndCategory(unittest.TestCase):
 
     def setUp(self):
-        # Обнуляем счётчики перед каждым тестом
         Category.category_count = 0
         Category.product_count = 0
 

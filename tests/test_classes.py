@@ -40,7 +40,6 @@ def test_new_product():
     assert product.description == "Эспрессо-машина"
     assert product.price == 8000
     assert product.quantity == 5
-    # Test for price setter with invalid value
 
 
 def test_price_setter_invalid(capsys):

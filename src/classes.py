@@ -1,90 +1,94 @@
 class Product:
+    name: str
+    description: str
+    __price: float
+    quantity: int
+
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
 
-    def __str__(self):
-        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
-
-    def __add__(self, other):
-        if isinstance(other, Product):
-            total_price = self.__price * self.quantity + other.__price * other.quantity
-            return total_price
-        else:
-            raise TypeError("Можно складывать только товары между собой")
-
-    @classmethod
-    def new_product(cls, product_data):
-        return cls(
-            product_data['name'],
-            product_data['description'],
-            product_data['price'],
-            product_data['quantity']
-        )
+    def __repr__(self):
+        return f"{self.name}: {self.description}, Цена: {self.price}, Количество: {self.quantity}"
 
     @property
     def price(self):
         return self.__price
 
     @price.setter
-    def price(self, new_price):
-        if new_price <= 0:
-            print("Цена не должна быть нулевая или отрицательная")
+    def price(self, value):
+        if value > 0:
+            self.__price = value
         else:
-            self.__price = new_price
+            print("Цена не должна быть нулевая или отрицательная")
+
+    @classmethod
+    def new_product(cls, params):
+        name = params.get("name")
+        description = params.get("description")
+        price = params.get("price")
+        quantity = params.get("quantity")
+        return cls(name, description, price, quantity)
+
+    def __str__(self):
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        if issubclass(type(other), self.__class__):
+            return (self.__price * self.quantity) + (other.__price * other.quantity)
+        else:
+            raise TypeError
 
 
 class Category:
     category_count = 0
     product_count = 0
 
+    name: str
+    description: str
+    __products: list
+
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
         self.__products = products
         Category.category_count += 1
-        Category.product_count += len(products)
+        Category.product_count += len(self.__products)
 
-    def __str__(self):
-        total_quantity = sum(product.quantity for product in self.__products)
-        return f"{self.name}, количество продуктов: {total_quantity} шт."
-
-    def add_product(self, product):
-        if isinstance(product, Product):
-            self.__products.append(product)
+    def add_product(self, other):
+        if isinstance(other, Product):
+            self.__products.append(other)
             Category.product_count += 1
         else:
-            print("В категорию можно добавлять только товары")
+            raise TypeError
 
     @property
     def products(self):
-        result = []
-        for product in self.__products:
-            result.append(str(product))
-        return result
+        return self.__products
+
+    def get_products(self):
+        return [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products]
+
+    def __str__(self):
+        return f"{self.name}, количество продуктов: {(sum(p.quantity for p in self.__products))} шт."
 
 
-if __name__ == '__main__':
-    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000, 5)
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000, 14)
+class Smartphone(Product):
 
-    print(product1)
-    print(product2)
-    print(product3)
+    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.color = color
 
-    category1 = Category(
-        "Смартфоны",
-        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1, product2, product3]
-    )
 
-    print(category1)
+class LawnGrass(Product):
 
-    print(category1.products)
-
-    print(product1 + product2)
-    print(product1 + product3)
-    print(product2 + product3)
+    def __init__(self, name, description, price, quantity, country, germination_period, color):
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.germination_period = germination_period
+        self.color = color

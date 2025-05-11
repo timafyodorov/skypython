@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a59f0d47-bdbb-4767-88f6-d6024f31c983" name="Changes" comment="HW-15.1">
+      <change beforePath="$PROJECT_DIR$/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/.coverage" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_classes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +51,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_classes.test_category_initialization.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_classes.test_new_product.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests for test_classes.test_product_add.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_classes.test_product_initialization.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_classes.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_utils.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.classes.executor&quot;: &quot;Run&quot;,
@@ -61,9 +69,9 @@
       <recent name="C:\Users\home\PycharmProjects\Python_project2" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Python tests for test_classes.test_product_add" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Python_project2" />
+  <component name="RunManager" selected="Python tests.Python tests for test_classes.test_category_initialization">
+    <configuration name="Python tests for test_classes.test_category_initialization" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="skypython" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,12 +81,61 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_category_initialization&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_classes.test_new_product" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="skypython" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_new_product&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_classes.test_product_add" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python_project2" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_classes.test_product_add&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_classes.test_product_initialization" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="skypython" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_product_initialization&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_classes.test_category_initialization" />
+        <item itemvalue="Python tests.Python tests for test_classes.test_new_product" />
+        <item itemvalue="Python tests.Python tests for test_classes.test_product_initialization" />
         <item itemvalue="Python tests.Python tests for test_classes.test_product_add" />
       </list>
     </recent_temporary>

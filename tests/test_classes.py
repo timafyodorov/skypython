@@ -24,7 +24,7 @@ def test_product_initialization():
     assert product.quantity == 3
 
 
-def test_category_initialization(sample_category, expected_str=None):
+def test_category_initialization(sample_category, expected_str='electronics, количество продуктов: 23 шт.'):
     assert str(sample_category) == expected_str
 
 

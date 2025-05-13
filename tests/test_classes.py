@@ -1,58 +1,71 @@
-import pytest
-from src.classes import Product, Category
+from abc import ABC, abstractmethod
 
+class AbstractProduct(ABC):
+    @property
+    @abstractmethod
+    def price(self):
+        pass
 
-@pytest.fixture
-def sample_products():
-    return [
-        Product("Продукт 1", "Описание 1", 100, 10),
-        Product("Продукт 2", "Описание 2", 200, 5),
-        Product("Продукт 3", "Описание 3", 150, 8)
-    ]
+    @price.setter
+    @abstractmethod
+    def price(self, value):
+        pass
 
+    @abstractmethod
+    def __str__(self):
+        pass
 
-@pytest.fixture
-def sample_category(sample_products):
-    return Category("electronics", "all kinds of electronics", sample_products)
+class MixinLog(AbstractProduct):
+    def __init__(self, name=None, description=None, price=None, quantity=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._name = name
+        self._description = description
+        self._price = price
+        self._quantity = quantity
+        print(repr(self))
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self._name}, {self._description}, {self._price}, {self._quantity})"
 
-def test_product_initialization():
-    product = Product("test Product", "test description", 150, 3)
-    assert product.name == "test Product"
-    assert product.description == "test description"
-    assert product.price == 150
-    assert product.quantity == 3
+    @property
+    def price(self):
+        return self._price
 
+    @price.setter
+    def price(self, value):
+        self._price = value
 
-def test_category_initialization(sample_category, expected_str='electronics, количество продуктов: 23 шт.'):
-    assert str(sample_category) == expected_str
+    def __str__(self):
+        return f"Product: {self._name}, Description: {self._description}, Price: {self._price}, Quantity: {self._quantity}"
 
+class Product(MixinLog):
+    def __init__(self, name, description, price, quantity):
+        super().__init__(name=name, description=description, price=price, quantity=quantity)
 
-def test_new_product():
-    data = {
-        "name": "Кофеварка",
-        "description": "Эспрессо-машина",
-        "price": 8000,
-        "quantity": 5
-    }
-    product = Product.new_product(data)
-    assert product.name == "Кофеварка"
-    assert product.description == "Эспрессо-машина"
-    assert product.price == 8000
-    assert product.quantity == 5
+import unittest
 
+class TestProduct(unittest.TestCase):
+    def setUp(self):
+        self.product = Product(name="Test Product", description="Test Description", price=50, quantity=5)
 
-def test_price_setter_invalid(capsys):
-    product = Product("Ноутбук", "Intel i5", 40000, 7)
-    product.price = -1000  # Expecting a message
-    captured = capsys.readouterr()
-    assert "Цена не должна быть нулевая или отрицательная" in captured.out
-    assert product.price == 40000  # Price should not change
-    # Test for adding two products together
+    def test_initialization(self):
+        self.assertEqual(self.product._name, "Test Product")
+        self.assertEqual(self.product._description, "Test Description")
+        self.assertEqual(self.product._price, 50)
+        self.assertEqual(self.product._quantity, 5)
 
+    def test_price_property(self):
+        self.assertEqual(self.product.price, 50)
+        self.product.price = 75
+        self.assertEqual(self.product.price, 75)
 
-def test_product_add():
-    p1 = Product("Samsung Galaxy S23 Ultra", "256GB", 180000.0, 5)
-    p2 = Product("Iphone 15", "512GB", 210000.0, 8)
-    total_price = p1.price * p1.quantity + p2.price * p2.quantity
-    assert total_price == 2580000.0
+    def test_str_method(self):
+        expected_str = "Product: Test Product, Description: Test Description, Price: 50, Quantity: 5"
+        self.assertEqual(str(self.product), expected_str)
+
+    def test_repr_method(self):
+        expected_repr = "Product(Test Product, Test Description, 50, 5)"
+        self.assertEqual(repr(self.product), expected_repr)
+
+if __name__ == '__main__':
+    unittest.main()

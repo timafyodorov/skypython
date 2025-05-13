@@ -1,94 +1,47 @@
-class Product:
-    name: str
-    description: str
-    __price: float
-    quantity: int
+from abc import ABC, abstractmethod
 
-    def __init__(self, name, description, price, quantity):
-        self.name = name
-        self.description = description
-        self.__price = price
-        self.quantity = quantity
+class AbstractProduct(ABC):
+    @property
+    @abstractmethod
+    def price(self):
+        pass
 
+    @price.setter
+    @abstractmethod
+    def price(self, value):
+        pass
+
+    @abstractmethod
+    def __str__(self):
+        pass
+
+class MixinLog(AbstractProduct):
+    def __init__(self, name=None, description=None, price=None, quantity=None, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._name = name
+        self._description = description
+        self._price = price
+        self._quantity = quantity
+        print(repr(self))
+
+    @property
     def __repr__(self):
-        return f"{self.name}: {self.description}, Цена: {self.price}, Количество: {self.quantity}"
+        return f"{self.__class__.__name__}({self._name}, {self._description}, {self._price}, {self._quantity})"
 
     @property
     def price(self):
-        return self.__price
+        return self._price
 
     @price.setter
     def price(self, value):
-        if value > 0:
-            self.__price = value
-        else:
-            print("Цена не должна быть нулевая или отрицательная")
-
-    @classmethod
-    def new_product(cls, params):
-        name = params.get("name")
-        description = params.get("description")
-        price = params.get("price")
-        quantity = params.get("quantity")
-        return cls(name, description, price, quantity)
+        self._price = value
 
     def __str__(self):
-        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+        return f"Product: {self._name}, Description: {self._description}, Price: {self._price}, Quantity: {self._quantity}"
 
-    def __add__(self, other):
-        if issubclass(type(other), self.__class__):
-            return (self.__price * self.quantity) + (other.__price * other.quantity)
-        else:
-            raise TypeError
+class Product(MixinLog):
+    def __init__(self, name, description, price, quantity):
+        super().__init__(name=name, description=description, price=price, quantity=quantity)
 
-
-class Category:
-    category_count = 0
-    product_count = 0
-
-    name: str
-    description: str
-    __products: list
-
-    def __init__(self, name, description, products):
-        self.name = name
-        self.description = description
-        self.__products = products
-        Category.category_count += 1
-        Category.product_count += len(self.__products)
-
-    def add_product(self, other):
-        if isinstance(other, Product):
-            self.__products.append(other)
-            Category.product_count += 1
-        else:
-            raise TypeError
-
-    @property
-    def products(self):
-        return self.__products
-
-    def get_products(self):
-        return [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products]
-
-    def __str__(self):
-        return f"{self.name}, количество продуктов: {(sum(p.quantity for p in self.__products))} шт."
-
-
-class Smartphone(Product):
-
-    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
-        super().__init__(name, description, price, quantity)
-        self.efficiency = efficiency
-        self.model = model
-        self.memory = memory
-        self.color = color
-
-
-class LawnGrass(Product):
-
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
-        super().__init__(name, description, price, quantity)
-        self.country = country
-        self.germination_period = germination_period
-        self.color = color
+product = Product(name="Example", description="Example Description", price=100, quantity=10)
+print(product)

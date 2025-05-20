@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a59f0d47-bdbb-4767-88f6-d6024f31c983" name="Changes" comment="HW-16.2FIX">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;timafyodorov&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/timafyodorov/skypython.git&quot;,
+    &quot;accountId&quot;: &quot;f495d76d-5b4d-4438-bd9d-d2b7538ce21d&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2wGYVlJQN2y49kpm5lqMeC6BlYE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_classes.test_category_initialization.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_classes.test_new_product.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_classes.test_product_add.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_classes.test_product_initialization.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_classes.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_utils.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.classes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_utils.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on feature/hm-14.1&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\home\PycharmProjects\Python_project2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_classes.test_category_initialization">
+    <configuration name="Python tests for test_classes.test_category_initialization" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="skypython" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_category_initialization&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_classes.test_new_product" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="skypython" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_new_product&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_classes.test_product_add" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Python_project2" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (pythonProject)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_product_add&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_classes.test_product_initialization" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="skypython" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_classes.test_product_initialization&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_classes.test_category_initialization" />
+        <item itemvalue="Python tests.Python tests for test_classes.test_new_product" />
+        <item itemvalue="Python tests.Python tests for test_classes.test_product_initialization" />
+        <item itemvalue="Python tests.Python tests for test_classes.test_product_add" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a59f0d47-bdbb-4767-88f6-d6024f31c983" name="Changes" comment="" />
+      <created>1745669403847</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745669403847</updated>
+    </task>
+    <task id="LOCAL-00001" summary="HW-14.2">
+      <option name="closed" value="true" />
+      <created>1745684738466</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745684738466</updated>
+    </task>
+    <task id="LOCAL-00002" summary="HW-14.2fix">
+      <option name="closed" value="true" />
+      <created>1745694159511</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745694159511</updated>
+    </task>
+    <task id="LOCAL-00003" summary="HW-14.2fix">
+      <option name="closed" value="true" />
+      <created>1745694172928</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745694172928</updated>
+    </task>
+    <task id="LOCAL-00004" summary="HW-14.2fix">
+      <option name="closed" value="true" />
+      <created>1745694684175</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745694684175</updated>
+    </task>
+    <task id="LOCAL-00005" summary="HW-14.1fix">
+      <option name="closed" value="true" />
+      <created>1745828775072</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745828775072</updated>
+    </task>
+    <task id="LOCAL-00006" summary="HW-14.1fix">
+      <option name="closed" value="true" />
+      <created>1745828789766</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745828789766</updated>
+    </task>
+    <task id="LOCAL-00007" summary="HW-14.1_fixx">
+      <option name="closed" value="true" />
+      <created>1746558283028</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746558283028</updated>
+    </task>
+    <task id="LOCAL-00008" summary="HW-15.1">
+      <option name="closed" value="true" />
+      <created>1746567179681</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746567179681</updated>
+    </task>
+    <task id="LOCAL-00009" summary="HW-15.1">
+      <option name="closed" value="true" />
+      <created>1746567203879</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746567203879</updated>
+    </task>
+    <task id="LOCAL-00010" summary="HW-14.1FX">
+      <option name="closed" value="true" />
+      <created>1746966103118</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746966103118</updated>
+    </task>
+    <task id="LOCAL-00011" summary="HW-16.2">
+      <option name="closed" value="true" />
+      <created>1747128624518</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747128624518</updated>
+    </task>
+    <task id="LOCAL-00012" summary="HW-16.2fix">
+      <option name="closed" value="true" />
+      <created>1747145192792</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747145192792</updated>
+    </task>
+    <task id="LOCAL-00013" summary="HW-16.2FIX">
+      <option name="closed" value="true" />
+      <created>1747751231605</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747751231605</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="HW-14.2" />
+    <MESSAGE value="HW-14.2fix" />
+    <MESSAGE value="HW-14.1fix" />
+    <MESSAGE value="HW-14.1_fixx" />
+    <MESSAGE value="HW-15.1" />
+    <MESSAGE value="HW-14.1FX" />
+    <MESSAGE value="HW-16.2" />
+    <MESSAGE value="HW-16.2fix" />
+    <MESSAGE value="HW-16.2FIX" />
+    <option name="LAST_COMMIT_MESSAGE" value="HW-16.2FIX" />
+  </component>
+</project>

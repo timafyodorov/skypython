@@ -1,16 +1,10 @@
 from abc import ABC, abstractmethod
-from typing import List, Dict
+from typing import Dict, List
 
 
-class BaseProduct(ABC):
+class BaseProduct(ABC):  # pragma: no cover
     @abstractmethod
-    def __init__(
-        self,
-        name: str,
-        description: str,
-        price: float,
-        quantity: int
-    ):
+    def __init__(self, name: str, description: str, price: float, quantity: int):
         pass
 
     @property
@@ -25,7 +19,7 @@ class BaseProduct(ABC):
 
     @classmethod
     @abstractmethod
-    def new_product(cls, product_data: Dict[str, any]) -> 'BaseProduct':
+    def new_product(cls, product_data: Dict[str, any]) -> "BaseProduct":
         pass
 
     @abstractmethod
@@ -36,22 +30,17 @@ class BaseProduct(ABC):
 class PrintInitMixin:
     def __init__(self, *args, **kwargs):
         class_name = self.__class__.__name__
-        params = ", ".join(
-            [f"{arg!r}" for arg in args] +
-            [f"{k}={v!r}" for k, v in kwargs.items()]
-        )
+        args_str = ", ".join(f"{arg!r}" for arg in args)
+        kwargs_str = ", ".join(f"{k}={v!r}" for k, v in kwargs.items())
+        params = ", ".join(filter(None, [args_str, kwargs_str]))
         print(f"Создан объект {class_name}({params})")
         super().__init__(*args, **kwargs)
 
 
 class Product(PrintInitMixin, BaseProduct):
-    def __init__(
-        self,
-        name: str,
-        description: str,
-        price: float,
-        quantity: int
-    ):
+    def __init__(self, name: str, description: str, price: float, quantity: int):
+        if quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         self.name = name
         self.description = description
         self.__price = price
@@ -72,29 +61,26 @@ class Product(PrintInitMixin, BaseProduct):
             self.__price = new_price
 
     @classmethod
-    def new_product(cls, product_data: Dict[str, any]) -> 'Product':
+    def new_product(cls, product_data: Dict[str, any]) -> "Product":
         """Создает продукт из словаря."""
         return cls(
             name=product_data["name"],
             description=product_data["description"],
             price=product_data["price"],
-            quantity=product_data["quantity"]
+            quantity=product_data["quantity"],
         )
 
     def __str__(self) -> str:
         """Возвращает строковое представление продукта."""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other: 'Product') -> float:
+    def __add__(self, other: "Product") -> float:
         """Суммирует произведения цены на количество."""
         if not isinstance(other, Product):
             raise TypeError("Можно складывать только объекты Product")
         if type(self) is not type(other):
             raise TypeError("Можно складывать только объекты одного класса")
-        return (
-            (self.__price * self.quantity) +
-            (other.__price * other.quantity)
-        )
+        return (self.__price * self.quantity) + (other.__price * other.quantity)
 
 
 class Smartphone(Product):
@@ -107,7 +93,7 @@ class Smartphone(Product):
         efficiency: float,
         model: str,
         memory: int,
-        color: str
+        color: str,
     ):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
@@ -125,7 +111,7 @@ class LawnGrass(Product):
         quantity: int,
         country: str,
         germination_period: str,
-        color: str
+        color: str,
     ):
         super().__init__(name, description, price, quantity)
         self.country = country
@@ -134,17 +120,10 @@ class LawnGrass(Product):
 
 
 class Category:
-    _Category__products: None
     category_count = 0
     product_count = 0
 
-    def __init__(
-        self,
-        name: str,
-        description: str,
-        products: List[Product] = None
-    ):
-        self._Category__products = None
+    def __init__(self, name: str, description: str, products: List[Product] = None):
         self.name = name
         self.description = description
         self.__products = products if products is not None else []
@@ -167,3 +146,11 @@ class Category:
         """Возвращает строковое представление категории."""
         total_quantity = sum(product.quantity for product in self.__products)
         return f"{self.name}, количество продуктов: {total_quantity} шт."
+
+    def middle_price(self) -> float:
+        """Вычисляет среднюю цену всех товаров в категории."""
+        try:
+            total_price = sum(product.price for product in self.__products)
+            return total_price / len(self.__products)
+        except ZeroDivisionError:
+            return 0

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a59f0d47-bdbb-4767-88f6-d6024f31c983" name="Changes" comment="HW-16.2">
+    <list default="true" id="a59f0d47-bdbb-4767-88f6-d6024f31c983" name="Changes" comment="HW-16.2fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747128624518</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="HW-16.2fix">
+      <option name="closed" value="true" />
+      <created>1747145192792</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747145192792</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -249,6 +257,7 @@
     <MESSAGE value="HW-15.1" />
     <MESSAGE value="HW-14.1FX" />
     <MESSAGE value="HW-16.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="HW-16.2" />
+    <MESSAGE value="HW-16.2fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="HW-16.2fix" />
   </component>
 </project>

@@ -1,39 +1,57 @@
 from abc import ABC, abstractmethod
+from typing import List, Dict
+
 
 class BaseProduct(ABC):
-
     @abstractmethod
-    def __init__(self, name, description, price, quantity):
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        price: float,
+        quantity: int
+    ):
+        pass
+
+    @property
+    @abstractmethod
+    def price(self) -> float:
+        pass
+
+    @price.setter
+    @abstractmethod
+    def price(self, new_price: float) -> None:
+        pass
+
+    @classmethod
+    @abstractmethod
+    def new_product(cls, product_data: Dict[str, any]) -> 'BaseProduct':
         pass
 
     @abstractmethod
-    def price(self):
-        pass
-
-    @abstractmethod
-    def __str__(self):
-        pass
-
-    @abstractmethod
-    def __add__(self, other):
+    def __str__(self) -> str:
         pass
 
 
-class MixinLog:
-    def __init__(self, *args):
-        super().__init__(*args)
-        print(repr(self))
+class PrintInitMixin:
+    def __init__(self, *args, **kwargs):
+        class_name = self.__class__.__name__
+        params = ", ".join(
+            [f"{arg!r}" for arg in args] +
+            [f"{k}={v!r}" for k, v in kwargs.items()]
+        )
+        print(f"Создан объект {class_name}({params})")
+        super().__init__(*args, **kwargs)
 
-    def __repr__(self):
-        return f"{self.__class__.__name__}({self.name}, {self.description}, {self.price}, {self.quantity})"
 
-class Product(MixinLog, BaseProduct):
-    name: str
-    description: str
-    __price: float
-    quantity: int
-
-    def __init__(self, name, description, price, quantity):
+class Product(PrintInitMixin, BaseProduct):
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        price: float,
+        quantity: int
+    ):
         self.name = name
         self.description = description
         self.__price = price
@@ -41,70 +59,56 @@ class Product(MixinLog, BaseProduct):
         super().__init__(name, description, price, quantity)
 
     @property
-    def price(self):
+    def price(self) -> float:
+        """Возвращает цену продукта."""
         return self.__price
 
     @price.setter
-    def price(self, value):
-        if value > 0:
-            self.__price = value
-        else:
+    def price(self, new_price: float) -> None:
+        """Устанавливает новую цену, если она положительная."""
+        if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
+        else:
+            self.__price = new_price
 
     @classmethod
-    def new_product(cls, params):
-        name = params.get("name")
-        description = params.get("description")
-        price = params.get("price")
-        quantity = params.get("quantity")
-        return cls(name, description, price, quantity)
+    def new_product(cls, product_data: Dict[str, any]) -> 'Product':
+        """Создает продукт из словаря."""
+        return cls(
+            name=product_data["name"],
+            description=product_data["description"],
+            price=product_data["price"],
+            quantity=product_data["quantity"]
+        )
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """Возвращает строковое представление продукта."""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other):
-        if issubclass(type(other), self.__class__):
-            return (self.__price * self.quantity) + (other.__price * other.quantity)
-        else:
-            raise TypeError
-
-
-class Category:
-    category_count = 0
-    product_count = 0
-
-    name: str
-    description: str
-    __products: list
-
-    def __init__(self, name, description, products):
-        self.name = name
-        self.description = description
-        self.__products = products
-        Category.category_count += 1
-        Category.product_count += len(self.__products)
-
-    def add_product(self, other):
-        if isinstance(other, Product):
-            self.__products.append(other)
-            Category.product_count += 1
-        else:
-            raise TypeError
-
-    @property
-    def products(self):
-        return self.__products
-
-    def get_products(self):
-        return [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products]
-
-    def __str__(self):
-        return f"{self.name}, количество продуктов: {(sum(p.quantity for p in self.__products))} шт."
+    def __add__(self, other: 'Product') -> float:
+        """Суммирует произведения цены на количество."""
+        if not isinstance(other, Product):
+            raise TypeError("Можно складывать только объекты Product")
+        if type(self) is not type(other):
+            raise TypeError("Можно складывать только объекты одного класса")
+        return (
+            (self.__price * self.quantity) +
+            (other.__price * other.quantity)
+        )
 
 
 class Smartphone(Product):
-
-    def __init__(self, name, description, price, quantity, efficiency, model, memory, color):
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        price: float,
+        quantity: int,
+        efficiency: float,
+        model: str,
+        memory: int,
+        color: str
+    ):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
@@ -113,9 +117,53 @@ class Smartphone(Product):
 
 
 class LawnGrass(Product):
-
-    def __init__(self, name, description, price, quantity, country, germination_period, color):
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        price: float,
+        quantity: int,
+        country: str,
+        germination_period: str,
+        color: str
+    ):
         super().__init__(name, description, price, quantity)
         self.country = country
         self.germination_period = germination_period
         self.color = color
+
+
+class Category:
+    _Category__products: None
+    category_count = 0
+    product_count = 0
+
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        products: List[Product] = None
+    ):
+        self._Category__products = None
+        self.name = name
+        self.description = description
+        self.__products = products if products is not None else []
+        Category.category_count += 1
+        Category.product_count += len(self.__products)
+
+    def add_product(self, product: Product) -> None:
+        """Добавляет продукт в категорию."""
+        if not isinstance(product, Product):
+            raise TypeError("Можно добавлять только Product или подклассы")
+        self.__products.append(product)
+        Category.product_count += 1
+
+    @property
+    def products(self) -> str:
+        """Возвращает строку с продуктами, используя их __str__."""
+        return "".join(str(product) + "\n" for product in self.__products)
+
+    def __str__(self) -> str:
+        """Возвращает строковое представление категории."""
+        total_quantity = sum(product.quantity for product in self.__products)
+        return f"{self.name}, количество продуктов: {total_quantity} шт."
